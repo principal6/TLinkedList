@@ -52,7 +52,7 @@ namespace JWENGINE
 			clear();
 		};
 
-		// Get the size of the linked list
+		// Get the (const) size of the linked list
 		auto size() const->const size_t
 		{
 			return m_Size;
@@ -266,37 +266,6 @@ namespace JWENGINE
 		{
 			erase();
 		}
-
-#if not defined(NDEBUG) && (defined(DEBUG) || defined(_DEBUG))
-		// Print in console window all the nodes that our linked list has.
-		// This function will be defined only in debug mode.
-		void print_linked_list()
-		{
-			if (m_Size)
-			{
-				// IF:
-				// our linked list has any node.
-
-				std::cout << "TLinkedList:";
-
-				SLinkedListNode<T>* iterator_node = m_pHead;
-				for (size_t iterator_index = 0; iterator_index < m_Size; iterator_index++)
-				{
-					std::cout << " <" << iterator_node->data << ">";
-					iterator_node = iterator_node->ptr_next;
-				}
-
-				std::cout << std::endl;
-			}
-			else
-			{
-				// IF:
-				// out linked list has no node.
-
-				std::cout << "No node in the linked list." << std::endl;
-			}
-		}
-#endif
 
 	private:
 		// Private getter function that returns the pointer to the node at a given index.
