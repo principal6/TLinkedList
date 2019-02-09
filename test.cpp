@@ -20,15 +20,30 @@ int main()
 
 	myLL.insert(9);
 
-	myLL.erase(0);
+	//myLL.erase(0);
 
 	myLL.insert(11, 0);
 
-	myLL.pop_back();
+	//myLL.pop_back();
 
-	myLL.erase(100);
+	//myLL.erase(100);
 
 	myLL[100] = 99;
+	
+	for (TLinkedList<int>::iterator it = myLL.begin(); it != myLL.end(); it++)
+	{
+		std::cout << "iterator: " << *it << std::endl;
+	}
+
+	for (auto& it: myLL)
+	{
+		std::cout << "range-based: " << ++it << std::endl;
+	}
+
+	for (auto& it : myLL)
+	{
+		std::cout << "range-based (2nd): " << it << std::endl;
+	}
 
 	//myLL.clear();
 	//std::cout << myLL.size() << std::endl;
